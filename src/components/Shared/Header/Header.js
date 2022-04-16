@@ -5,17 +5,17 @@ import './Header.css';
 const Header = () => {
     return (
         <div>
-            <Navbar className='tg-navbar' collapseOnSelect expand="lg" bg="header-bg" variant="light">
+            <Navbar className='tg-navbar text-white' collapseOnSelect expand="lg" bg="header-bg" variant="dark">
                 <Container className='tg-navbar-container rounded-3 mt-2'>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand className='fw-bold'>TRAVEGO</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                        <Nav className='text-uppercase'>
+                            <Nav.Link className='text-white' href="#deets">Home</Nav.Link>
+                            <Nav.Link className='text-white' href="#memes">
+                                About
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
