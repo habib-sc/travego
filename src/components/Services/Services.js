@@ -14,11 +14,34 @@ const Services = () => {
         .then(data => setServices(data));
     } , []);
 
-    console.log(services);
+    //Owl Carousel Settings
+    const owlOptions = {
+        loop: true,
+        center: true,
+        items: 3,
+        margin: 15,
+        autoplay: true,
+        dots: true,
+        autoplayTimeout: 8500,
+        smartSpeed: 450,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            900: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    };
 
     return (
         <div className='container tg-home-services'>
-            <OwlCarousel className='owl-theme' loop margin={10} autoplay>
+            <h1 className='text-center mb-5'>Popular Tourist Spots</h1>
+            <OwlCarousel className='owl-theme' {...owlOptions}>
             {
                 services.map(service => <Service key={service.id} service={service}></Service>)
             }

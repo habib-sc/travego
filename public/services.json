@@ -2,7 +2,7 @@
   {
     "id": "1",
     "name": "Cox's Bazar",
-    "text": "Cox's Bazar is the longest unbroken sandy beach in the world, 125 km in length. It is the most popular tourist spot among the locals in Bangladesh. Perfect place to relax at the end fo a long trip.",
+    "text": "Cox's Bazar is the longest unbroken sandy beach in the world, 125 km in length. It is the most popular tourist spot among the locals in Bangladesh. Its Perfect place for relax",
     "rating": "4.5",
     "price": "100",
     "img": "https://i.ibb.co/n0JVWbZ/CoxBazar.jpg"
@@ -11,7 +11,7 @@
   {
     "id": "2",
     "name": "Sundarbans Mangrove Forest",
-    "text": "Sundarbans is the largest mangrove forest on earth and a UNESCO world heritage site. Sundarban is located in between tow neighboring countries - Bangladesh and India. The Majority of the forest is located in Bangladesh.",
+    "text": "Sundarbans is the largest mangrove forest on earth and a UNESCO world heritage site. Sundarban is located in between tow neighboring countries - Bangladesh and India.",
     "rating": "4",
     "price": "120",
     "img": "https://i.ibb.co/sHQDgDq/mangrove.jpg"
@@ -30,7 +30,7 @@
   {
     "id": "4",
     "name": "Rangamati",
-    "text": "Rangamati is a district of the Chittagong Hill-Tracts area. The main reason to visit this place is Kaptai Lake. It is a naturally beautiful man-made lake surrounded by beautiful hills. The best thing to do at here is to enjoy a boat ride on Kaptai Lake.",
+    "text": "Rangamati is a district of the Chittagong Hill-Tracts area. The main reason to visit this place is Kaptai Lake. It is a naturally beautiful man-made lake surrounded by beautiful hills.",
     "rating": "4.8",
     "price": "140",
     "img": "https://i.ibb.co/9gDM22y/rangamati.jpg"
@@ -39,7 +39,7 @@
   {
     "id": "5",
     "name": "Srimangal",
-    "text": "Srimangal is the tea capital of Bangladesh. This hilly area, with tea estates, lemon orchards, pineaple and rubber plantations is one of the most picturesque and enjoyable parts of the country.",
+    "text": "Srimangal is the tea capital of Bangladesh. This hilly area, with tea estates, lemon orchards, pineaple and rubber plantations is one of the most enjoyable parts of the country.",
     "rating": "5",
     "price": "100",
     "img": "https://i.ibb.co/9GCs4ZV/srimangal.jpg"
