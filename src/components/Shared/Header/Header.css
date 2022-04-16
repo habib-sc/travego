@@ -1,0 +1,9 @@
+.header-bg{
+    background-color: transparent;
+}
+.tg-navbar{
+    z-index: 2;
+}
+.tg-navbar-container{
+    background-color: rgba(245, 245, 245, 0.534);
+}

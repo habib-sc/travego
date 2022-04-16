@@ -1,0 +1,12 @@
+.home-banner{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../../../assets/images/travego-hero.jpg');
+    top: 0;
+}
+.tg-letter-space{
+    letter-spacing: 8px;
+}
+.tg-large-heading{
+    font-size: 60px;
+}
