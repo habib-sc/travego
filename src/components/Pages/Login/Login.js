@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Login = () => {
+
+    // Getting auth & navigation info for navigate after login
+    const [userAuth, loadingAuth, errorAuth] = useAuthState(auth);
+    const navigate = useNavigate(); 
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     // User Information hook 
     const [userInfo, setUserInfo] = useState({
@@ -16,8 +23,6 @@ const Login = () => {
         passwordError: '',
         hookError: ''
     });
-
-    const navigate = useNavigate();
 
     const [
         signInWithEmailAndPassword,
@@ -53,7 +58,15 @@ const Login = () => {
     const handleLoginForm = e => {
         e.preventDefault();
         signInWithEmailAndPassword(userInfo.email, userInfo.password);
-        navigate('/');
+    }
+
+    if (userAuth) {
+        // Navigating where user come from 
+        navigate(from, { replace: true });
+    }
+
+    if (loading) {
+        return <Spinner></Spinner>;
     }
 
     return (
@@ -70,7 +83,8 @@ const Login = () => {
                 {errors.passwordError && 
                 <p className='tg-input-error'>{errors.passwordError}</p>
                 }
-                <button className='tg-submit-btn btn btn-primary border-0 mb-5 mt-2'>Log In</button>
+                <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Log In</button>
+                <p className='mt-2 mb-5'>Don't have an account? <Link to='/register'>Create a new account</Link></p>
             </form>
         </div>
     );

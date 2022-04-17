@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Register.css';
 
@@ -83,7 +83,8 @@ const Register = () => {
                 <p className='tg-input-error'>{errors.passwordError}</p>
                 }
                 <input onChange={handleConfirmPassword} type="password" name='confirm-password' placeholder='Confirm Password' className='tg-form-input my-2 border-0 rounded-3' />
-                <button className='tg-submit-btn btn btn-primary border-0 mb-5 mt-2'>Sign Up</button>
+                <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Sign Up</button>
+                <p className='mt-2 mb-5'>Allready have an account? <Link to='/login'>Sign in heare</Link></p>
             </form>
         </div>
     );
