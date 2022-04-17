@@ -75,11 +75,11 @@ const Login = () => {
                 <h2>Login</h2>
             </div>
             <form onSubmit={handleLoginForm} className='d-flex flex-column w-25 mx-auto mt-4'>
-                <input onChange={handleEmail} type="email" name='email' placeholder='Email' className='tg-form-input my-2 border-0 rounded-3' />
+                <input onChange={handleEmail} type="email" name='email' placeholder='Email' required className='tg-form-input my-2 border-0 rounded-3' />
                 {errors.emailError && 
                 <p className='tg-input-error'>{errors.emailError}</p>
                 }
-                <input onChange={handlePassword} type="password" name='password' placeholder='Password' className='tg-form-input my-2 border-0 rounded-3' />
+                <input onChange={handlePassword} type="password" name='password' placeholder='Password' required className='tg-form-input my-2 border-0 rounded-3' />
                 {errors.passwordError && 
                 <p className='tg-input-error'>{errors.passwordError}</p>
                 }
