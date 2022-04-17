@@ -32,7 +32,7 @@ const Services = ({services, handleHire}) => {
     };
 
     return (
-        <div className='container tg-home-services'>
+        <div id="services-section" className='container tg-home-services'>
             <h1 className='text-center mb-5'>My Guide Services</h1>
             <OwlCarousel id='service-carousel' className='owl-theme' {...owlOptions}>
             {
