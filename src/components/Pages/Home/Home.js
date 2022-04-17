@@ -1,5 +1,6 @@
 import React from 'react';
 import Services from '../../Services/Services';
+import WhyChooseMe from '../../WhyChooseMe/WhyChooseMe';
 import HomeBanner from './HomeBanner/HomeBanner';
 
 const Home = ({services, handleHire}) => {
@@ -7,6 +8,7 @@ const Home = ({services, handleHire}) => {
         <div>
             <HomeBanner></HomeBanner>
             <Services services={services} handleHire={handleHire}></Services>
+            <WhyChooseMe></WhyChooseMe>
         </div>
     );
 };
