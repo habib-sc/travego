@@ -12,10 +12,10 @@ const Footer = () => {
                 </div>
                 <div className='col'>
                     <h4 className='text-uppercase text-white'>Contact With Me</h4>
-                    <ul class="list-group tg-footer-list list-group-flush">
-                        <li class="list-group-item"><GeoFill className='tg-footer-icon'></GeoFill> Address: #House 414, #Rd 8, Mirpur, Dhaka, Bangladesh</li>
-                        <li class="list-group-item"><PhoneFill className='tg-footer-icon'></PhoneFill> Phone: +8801961584280</li>
-                        <li class="list-group-item"><EnvelopeFill className='tg-footer-icon'></EnvelopeFill> Email: habib97.cs@gmail.com</li>
+                    <ul className="list-group tg-footer-list list-group-flush">
+                        <li className="list-group-item"><GeoFill className='tg-footer-icon'></GeoFill> Address: #House 414, #Rd 8, Mirpur, Dhaka, Bangladesh</li>
+                        <li className="list-group-item"><PhoneFill className='tg-footer-icon'></PhoneFill> Phone: +8801961584280</li>
+                        <li className="list-group-item"><EnvelopeFill className='tg-footer-icon'></EnvelopeFill> Email: habib97.cs@gmail.com</li>
                     </ul>
                 </div>
                 <div className='col'>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Register.css';
@@ -21,13 +21,15 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    // Create user hook - React Firebase Hooks 
+    // Auth user hook - React Firebase Hooks 
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     // Handling Inputs 
     const handleName = e => {
@@ -66,6 +68,12 @@ const Register = () => {
         navigate('/');
         
     }
+    
+    // Handle Google Authentication 
+    const handleGoogleAuth = () => {
+        signInWithGoogle();
+        navigate('/');
+    }
 
     return (
         <div>
@@ -84,8 +92,14 @@ const Register = () => {
                 }
                 <input onChange={handleConfirmPassword} type="password" name='confirm-password' required placeholder='Confirm Password' className='tg-form-input my-2 border-0 rounded-3' />
                 <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Sign Up</button>
-                <p className='mt-2 mb-5'>Allready have an account? <Link to='/login'>Sign in heare</Link></p>
+                <p className='mt-2 mb-3'>Allready have an account? <Link to='/login'>Sign in heare</Link></p>
             </form>
+             
+             <div className="d-flex flex-column w-25 mx-auto mb-5 pb-5">
+                 <h4 className='text-center fw-semi-bold'>OR</h4>
+                 <hr />
+                <button onClick={() => handleGoogleAuth()} className='tg-submit-btn btn btn-primary border-0 mt-2'>Continue With Google</button>
+             </div>
         </div>
     );
 };

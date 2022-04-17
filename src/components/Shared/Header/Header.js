@@ -33,9 +33,11 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link className='nav-link text-white' to='/about'>About</Link>
                             </li>
+                            {!user &&
                             <li className="nav-item">
                                 <Link className='nav-link text-white' to='/login'>Login</Link>
                             </li>
+                            }
                             <li className="nav-item">
                                 {user?
                                     <Link className='nav-link text-white' to='/'><button onClick={handleSignOut} className='btn btn btn-link rounded-pill text-uppercase text-white'>Logout</button></Link>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Spinner from '../../Shared/Spinner/Spinner';
@@ -24,13 +24,16 @@ const Login = () => {
         hookError: ''
     });
 
+    // React Firebase hooks 
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
+    // Handle Inputs 
     const handleEmail = e => {
         const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -69,6 +72,11 @@ const Login = () => {
         return <Spinner></Spinner>;
     }
 
+    // Handle Google Authentication 
+    const handleGoogleAuth = () => {
+        signInWithGoogle();
+    }
+
     return (
         <div>
             <div className='text-center mt-3'>
@@ -86,6 +94,12 @@ const Login = () => {
                 <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Log In</button>
                 <p className='mt-2 mb-5'>Don't have an account? <Link to='/register'>Create a new account</Link></p>
             </form>
+
+            <div className="d-flex flex-column w-25 mx-auto mb-5 pb-5">
+                 <h4 className='text-center fw-semi-bold'>OR</h4>
+                 <hr />
+                <button onClick={() => handleGoogleAuth()} className='tg-submit-btn btn btn-primary border-0 mt-2'>Continue With Google</button>
+             </div>
         </div>
     );
 };
