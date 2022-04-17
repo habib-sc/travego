@@ -1,18 +1,11 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import Service from './Service/Service';
 import './Services.css';
 
-const Services = () => {
-    const [services, setServices] = useState([]);
-
-    useEffect( () => {
-        fetch('services.json')
-        .then(res => res.json())
-        .then(data => setServices(data));
-    } , []);
+const Services = ({services}) => {
 
     //Owl Carousel Settings
     const owlOptions = {
@@ -40,8 +33,8 @@ const Services = () => {
 
     return (
         <div className='container tg-home-services'>
-            <h1 className='text-center mb-5'>Popular Tourist Spots</h1>
-            <OwlCarousel className='owl-theme' {...owlOptions}>
+            <h1 className='text-center mb-5'>My Guide Services</h1>
+            <OwlCarousel id='service-carousel' className='owl-theme' {...owlOptions}>
             {
                 services.map(service => <Service key={service.id} service={service}></Service>)
             }

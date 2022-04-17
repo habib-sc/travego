@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/Pages/About/About';
@@ -11,11 +12,20 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import Header from './components/Shared/Header/Header';
 
 function App() {
+
+  const [services, setServices] = useState([]);
+
+    useEffect( () => {
+        fetch('services.json')
+        .then(res => res.json())
+        .then(data => setServices(data));
+    } , []);
+
   return (
     <div className="App">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/' element={<Home services={services}></Home>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/checkout' element={
