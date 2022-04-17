@@ -5,8 +5,10 @@ import './App.css';
 import About from './components/Pages/About/About';
 import Blog from './components/Pages/Blog/Blog';
 import Checkout from './components/Pages/Checkout/Checkout';
+import Footer from './components/Pages/Footer/Footer';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
+import NotFound from './components/Pages/NotFound/NotFound';
 import Register from './components/Pages/Register/Register';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Header from './components/Shared/Header/Header';
@@ -35,7 +37,9 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
