@@ -5,7 +5,7 @@ import OwlCarousel from 'react-owl-carousel';
 import Service from './Service/Service';
 import './Services.css';
 
-const Services = ({services}) => {
+const Services = ({services, handleHire}) => {
 
     //Owl Carousel Settings
     const owlOptions = {
@@ -36,7 +36,7 @@ const Services = ({services}) => {
             <h1 className='text-center mb-5'>My Guide Services</h1>
             <OwlCarousel id='service-carousel' className='owl-theme' {...owlOptions}>
             {
-                services.map(service => <Service key={service.id} service={service}></Service>)
+                services.map(service => <Service key={service.id} service={service} handleHire={handleHire}></Service>)
             }
             </OwlCarousel>
             

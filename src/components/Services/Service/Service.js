@@ -3,11 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Service = (props) => {
     const {name, img, price, text} = props.service;
+    const handleHire = props.handleHire;
     const navigate = useNavigate();
-    
-    const handleHire = () => {
-        navigate('/checkout');
-    }
 
     return (
         <div className="card position-relative" style={{'height': '500px'}}>
@@ -18,7 +15,7 @@ const Service = (props) => {
             <div className="card-body service-card-body m-3 rounded-3 shadow-lg">
                 <h5 className="card-title fw-bold">{name}</h5>
                 <p className="card-text">{text}</p>
-                <button onClick={handleHire} className='btn btn-light shadow-lg fw-bold'>Hire For This</button>
+                <button onClick={() => handleHire(props.service)} className='btn btn-light shadow-lg fw-bold'>Hire For This</button>
             </div>
         </div>
     );

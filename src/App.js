@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import About from './components/Pages/About/About';
 import Blog from './components/Pages/Blog/Blog';
@@ -16,6 +16,8 @@ import Header from './components/Shared/Header/Header';
 function App() {
 
   const [services, setServices] = useState([]);
+  const [service, setService] = useState({});
+  const navigate = useNavigate();
 
     useEffect( () => {
         fetch('services.json')
@@ -23,16 +25,21 @@ function App() {
         .then(data => setServices(data));
     } , []);
 
+    const handleHire = (service) => {
+      setService(service);
+      navigate('/checkout');
+  }
+
   return (
     <div className="App">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Home services={services}></Home>}></Route>
+        <Route path='/' element={<Home services={services} handleHire={handleHire}></Home>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/checkout' element={
           <RequireAuth>
-            <Checkout></Checkout>
+            <Checkout service={service}></Checkout>
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>

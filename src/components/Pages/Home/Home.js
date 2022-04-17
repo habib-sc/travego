@@ -2,11 +2,11 @@ import React from 'react';
 import Services from '../../Services/Services';
 import HomeBanner from './HomeBanner/HomeBanner';
 
-const Home = ({services}) => {
+const Home = ({services, handleHire}) => {
     return (
         <div>
             <HomeBanner></HomeBanner>
-            <Services services={services}></Services>
+            <Services services={services} handleHire={handleHire}></Services>
         </div>
     );
 };
