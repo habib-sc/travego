@@ -10,3 +10,8 @@
   right: 10px;
   top: 10px;
 }
+.tg-link{
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}

@@ -18,7 +18,9 @@ const Header = () => {
         <div>
             <Navbar className='tg-navbar text-white' collapseOnSelect expand="lg" bg="header-bg" variant="dark">
                 <Container className='tg-navbar-container rounded-3 mt-2'>
-                    <Navbar.Brand className='fw-bold'>TRAVEGO</Navbar.Brand>
+                    <Navbar.Brand className='fw-bold'>
+                        <Link to='/' className='text-decoration-none text-white'>TRAVEGO</Link>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
 import Spinner from '../../Shared/Spinner/Spinner';
 
@@ -32,6 +34,8 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [sendPasswordResetEmail, sending, passwordResetError] = useSendPasswordResetEmail(auth);
+    
 
     // Handle Inputs 
     const handleEmail = e => {
@@ -77,6 +81,12 @@ const Login = () => {
         signInWithGoogle();
     }
 
+    // Handle Reset Password 
+    const handleResetPassword = async () => {
+        await sendPasswordResetEmail(userInfo.email);
+        toast("Password Reset Email Sent!");
+    }
+
     return (
         <div>
             <div className='text-center mt-3'>
@@ -92,7 +102,8 @@ const Login = () => {
                 <p className='tg-input-error'>{errors.passwordError}</p>
                 }
                 <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Log In</button>
-                <p className='mt-2 mb-5'>Don't have an account? <Link to='/register'>Create a new account</Link></p>
+                <p className='mt-2 mb-0'>Don't have an account? <Link to='/register'>Create a new account</Link></p>
+                <p onClick={handleResetPassword} className='mt-0 mb-5 tg-link' to='/'>Forgot Password?</p>
             </form>
 
             <div className="d-flex flex-column w-25 mx-auto mb-5 pb-5">
@@ -100,6 +111,7 @@ const Login = () => {
                  <hr />
                 <button onClick={() => handleGoogleAuth()} className='tg-submit-btn btn btn-primary border-0 mt-2'>Continue With Google</button>
              </div>
+             <ToastContainer />
         </div>
     );
 };
