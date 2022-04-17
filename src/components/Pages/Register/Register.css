@@ -1,0 +1,16 @@
+.tg-form-input {
+    background-color: rgba(135, 207, 235, 0.261);
+    padding: 10px;
+}
+.tg-submit-btn{
+    background-color: rgb(52, 193, 248);
+}
+.tg-submit-btn:hover{
+    background-color: rgb(23, 156, 209);
+}
+.tg-input-error{
+    color: rgb(245, 10, 10);
+}
+.tg-input-error::before{
+    content: "❌";
+}
