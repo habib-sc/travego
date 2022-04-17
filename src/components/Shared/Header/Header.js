@@ -31,7 +31,7 @@ const Header = () => {
                                 <Link className='nav-link text-white' to='/blog'>Blog</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className='nav-link text-white' to='/about'>About</Link>
+                                <Link className='nav-link text-white' to='/about'>About Me</Link>
                             </li>
                             {!user &&
                             <li className="nav-item">
