@@ -5,7 +5,7 @@ import './Footer.css';
 const Footer = () => {
     return (
         <div className='footer-bg mt-5 py-2'>
-            <section className='row gap-5 container mx-auto p-0'>
+            <section className='row row-cols-1 row-cols-md-3 g-3 container mx-auto'>
                 <div className='col p-0'>
                     <h1 className='text-uppercase text-white'>Travego</h1>
                     <p>Hi, I am a Travel Guide. I am here to help you to make your tour or travel easier. Feel free to knock me for a guide in Bangladesh</p>
