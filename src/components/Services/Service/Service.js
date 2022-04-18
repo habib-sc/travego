@@ -7,7 +7,7 @@ const Service = (props) => {
     const navigate = useNavigate();
 
     return (
-        <div className="card position-relative" style={{'height': '500px'}}>
+        <div className="card position-relative mx-2" style={{'height': '500px'}}>
             <img src={img} className="card-img-top position-absolute" style={{'height': '100%', 'backgroundSize': 'cover'}} alt="..."/>
             <div className='service-card-price rounded-pill px-2 py-1 bg-light'>
                 <p className='mb-0 fw-bold'>{price}$ <span>/ day</span></p>
