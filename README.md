@@ -1,3 +1,31 @@
+# Project Info
+
+### Project Name: Travego
+
+This is an Independent Travel Guide service provider website.
+See live site [here](https://travego-70ecd.web.app/).
+
+### Some Features
+  * Single Page Application
+  * Social Login/Registration
+  * Smart Error Validation
+  * Email and Password Regsitration
+  * Full screen banner
+  * Services carousel
+  * Responsive Design
+
+### Technology Used
+  * HTML
+  * CSS
+  * Javascript
+  * Bootstrap
+  * React Js
+  * React Bootstrap Icon
+  * React Slick Carousel
+  * React Toastify
+  * React Router
+  * Firebase
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
