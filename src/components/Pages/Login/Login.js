@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -9,7 +9,7 @@ import Spinner from '../../Shared/Spinner/Spinner';
 const Login = () => {
 
     // Getting auth & navigation info for navigate after login
-    const [userAuth, loadingAuth, errorAuth] = useAuthState(auth);
+    const [userAuth] = useAuthState(auth);
     const navigate = useNavigate(); 
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -66,6 +66,29 @@ const Login = () => {
         e.preventDefault();
         signInWithEmailAndPassword(userInfo.email, userInfo.password);
     }
+
+    // Handling Login errors 
+    useEffect( () => {
+        if (error){
+            switch(error?.code){
+                case "auth/invalid-email":
+                    toast("Invalid Email!");
+                    break;
+                case "auth/wrong-password":
+                    toast("Wrong Password!");
+                    break;
+                case "auth/user-not-found":
+                    toast("No account found with this email.");
+                    break;
+                case "auth/too-many-requests":
+                    toast("You have been blocked temporery for Too Many Requests!");
+                    break;
+                default:
+                    toast(error?.code);
+                    break;
+            }
+        }
+    }, [error]);
 
     if (userAuth) {
         // Navigating where user come from 

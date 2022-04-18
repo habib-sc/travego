@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
+import Spinner from '../../Shared/Spinner/Spinner';
 import './Register.css';
 
 const Register = () => {
@@ -16,10 +19,9 @@ const Register = () => {
     const [errors, setErrors] = useState({
         emailError: '',
         passwordError: '',
-        hookError: ''
+        confirmPasswordError: ''
     });
 
-    const navigate = useNavigate();
 
     // Auth user hook - React Firebase Hooks 
     const [
@@ -59,14 +61,20 @@ const Register = () => {
         }
     }
     const handleConfirmPassword = e => {
-        setUserInfo({ ...userInfo, password: e.target.value });
+        if (userInfo.password === e.target.value){
+            setUserInfo({ ...userInfo, password: e.target.value });
+            setErrors({...errors, confirmPasswordError: ""});
+        }else{
+            setErrors({...errors, confirmPasswordError: "Password don't match!"});
+        }
     }
+
+    const navigate = useNavigate();
+
     // Handling Sign up form on submit 
     const handleSignUpForm = e => {
         e.preventDefault();
-        createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-        navigate('/');
-        
+        createUserWithEmailAndPassword(userInfo.email, userInfo.password);   
     }
     
     // Handle Google Authentication 
@@ -75,8 +83,34 @@ const Register = () => {
         navigate('/');
     }
 
+
+
+    // Handling Register errors 
+    useEffect( () => {
+        if (error){
+            switch(error?.code){
+                case "auth/invalid-email":
+                    toast("Invalid Email!");
+                    break;
+                case "auth/email-already-in-use":
+                    toast("Account already exist with this email.");
+                    break;
+                default:
+                    toast(error?.code);
+                    break;
+            }
+        }
+    }, [error]);
+
+    if (user) {
+        navigate('/');
+    }
+
     return (
         <div>
+            {loading &&
+                <Spinner></Spinner>
+            }
             <div className='text-center mt-3'>
                 <h2>Sign Up</h2>
             </div>
@@ -91,6 +125,9 @@ const Register = () => {
                 <p className='tg-input-error'>{errors.passwordError}</p>
                 }
                 <input onChange={handleConfirmPassword} type="password" name='confirm-password' required placeholder='Confirm Password' className='tg-form-input my-2 border-0 rounded-3' />
+                {errors.confirmPasswordError && 
+                <p className='tg-input-error'>{errors.confirmPasswordError}</p>
+                }
                 <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Sign Up</button>
                 <p className='mt-2 mb-3'>Allready have an account? <Link to='/login'>Sign in heare</Link></p>
             </form>
@@ -100,6 +137,7 @@ const Register = () => {
                  <hr />
                 <button onClick={() => handleGoogleAuth()} className='tg-submit-btn btn btn-primary border-0 mt-2'>Continue With Google</button>
              </div>
+             <ToastContainer />
         </div>
     );
 };
