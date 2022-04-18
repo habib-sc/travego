@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import googleIcon from '../../../assets/icons/google.png';
 import auth from '../../../firebase.init';
 import Spinner from '../../Shared/Spinner/Spinner';
 import './Register.css';
@@ -135,7 +136,10 @@ const Register = () => {
              <div className="d-flex flex-column w-25 mx-auto mb-5 pb-5">
                  <h4 className='text-center fw-semi-bold'>OR</h4>
                  <hr />
-                <button onClick={() => handleGoogleAuth()} className='tg-submit-btn btn btn-primary border-0 mt-2'>Continue With Google</button>
+                <button onClick={() => handleGoogleAuth()} className='tg-submit-btn btn btn-primary border-0 mt-2 d-flex justify-content-center align-items-center'>
+                    <img src={googleIcon} className="mx-2 rounded-circle" alt="" />
+                    Continue With Google
+                </button>
              </div>
              <ToastContainer />
         </div>

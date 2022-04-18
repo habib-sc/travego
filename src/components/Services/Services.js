@@ -1,5 +1,3 @@
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import React from 'react';
 import Slider from 'react-slick/lib/slider';
 import "slick-carousel/slick/slick-theme.css";
