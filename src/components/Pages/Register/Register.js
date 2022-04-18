@@ -130,7 +130,7 @@ const Register = () => {
                 <p className='tg-input-error'>{errors.confirmPasswordError}</p>
                 }
                 <button className='tg-submit-btn btn btn-primary border-0 mt-2'>Sign Up</button>
-                <p className='mt-2 mb-3'>Allready have an account? <Link to='/login'>Sign in heare</Link></p>
+                <p className='mt-2 mb-3'>Allready have an account? <Link to='/login'>Sign in here</Link></p>
             </form>
              
              <div className="d-flex flex-column w-25 mx-auto mb-5 pb-5">
