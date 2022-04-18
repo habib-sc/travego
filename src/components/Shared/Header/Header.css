@@ -3,6 +3,7 @@
 }
 .tg-navbar{
     z-index: 2;
+    height: 70px;
 }
 .tg-navbar-container{
     background-color: rgb(52, 193, 248);

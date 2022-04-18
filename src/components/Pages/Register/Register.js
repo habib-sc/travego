@@ -112,7 +112,7 @@ const Register = () => {
             {loading &&
                 <Spinner></Spinner>
             }
-            <div className='text-center mt-3'>
+            <div className='text-center mt-5'>
                 <h2>Sign Up</h2>
             </div>
             <form onSubmit={handleSignUpForm} className='d-flex flex-column w-25 mx-auto mt-4'>
