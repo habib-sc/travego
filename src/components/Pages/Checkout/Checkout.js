@@ -24,7 +24,7 @@ const Checkout = ({service}) => {
             <div className='text-center my-5'>
                 <h2>Checkout</h2>
             </div>
-            <div className="row row-cols-2">
+            <div className="row row-cols-1 row-cols-md-2">
                 <div className="col">
                     <form  className='d-flex flex-column mx-auto'>
                         <input  type="text" name='name' placeholder='Name' className='tg-form-input my-2 border-0 rounded-3' />
@@ -43,7 +43,7 @@ const Checkout = ({service}) => {
                         </div>
                     </div>
                     <hr />
-                    <div className='d-flex justify-content-between'>
+                    <div className='row row-cols-1 row-cols-md-3'>
                         <div>
                             <h4>Price: {price}$</h4>
                         </div>
